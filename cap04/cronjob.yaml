@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-ping
+spec:
+  schedule: "*/1 * * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: ping
+            image: quay.io/ricardo_instructor_formacion/cooperativa-web:client-1.0
+            command:
+            - sh
+            - -c
+            - 'date -u; curl -s http://web:8080/whoami'

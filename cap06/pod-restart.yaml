@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: always
+  labels:
+    app: always
+spec:
+  restartPolicy: Always
+  containers:
+  - name: app
+    image: registry.access.redhat.com/ubi9/ubi:latest
+    command: ["sh", "-c", "echo inicio; sleep 2; echo fallo; exit 1"]
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: never
+  labels:
+    app: never
+spec:
+  restartPolicy: Never
+  containers:
+  - name: app
+    image: registry.access.redhat.com/ubi9/ubi:latest
+    command: ["sh", "-c", "echo inicio; sleep 2; echo fallo; exit 1"]

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client
+  labels:
+    app: client
+spec:
+  containers:
+  - name: client
+    image: quay.io/ricardo_instructor_formacion/cooperativa-web:client-1.0
+    command: ["sleep", "infinity"]

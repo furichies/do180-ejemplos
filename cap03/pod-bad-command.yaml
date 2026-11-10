@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bad-command
+  labels:
+    app: bad-command
+spec:
+  containers:
+  - name: shell
+    image: registry.access.redhat.com/ubi9/ubi:latest
+    command: ["comando-que-no-existe"]

@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-config
+data:
+  APP_ENV: produccion
+  WELCOME: Hola DO180
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: web-files
+data:
+  mensaje.txt: |
+    Este fichero viene de un ConfigMap.
+    Se monta en /etc/cooperativa.
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: web-secret
+type: Opaque
+stringData:
+  DB_USER: alumno
+  DB_PASSWORD: redhat123

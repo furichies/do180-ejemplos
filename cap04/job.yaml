@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-ping
+spec:
+  backoffLimit: 2
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: ping
+        image: quay.io/ricardo_instructor_formacion/cooperativa-web:client-1.0
+        command:
+        - sh
+        - -c
+        - |
+          echo "web:"
+          curl -s http://web:8080/healthz
+          echo "db:"
+          curl -s http://db:8080/healthz
+          echo "downstream:"
+          curl -s "http://web:8080/downstream?host=db&port=8080"

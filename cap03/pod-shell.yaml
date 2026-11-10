@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shell
+  labels:
+    app: shell
+spec:
+  containers:
+  - name: shell
+    image: registry.access.redhat.com/ubi9/ubi:latest
+    command: ["sh", "-c", "echo \"Hola desde $(hostname)\"; sleep 3600"]

@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: writer
+  labels:
+    app: writer
+spec:
+  containers:
+  - name: writer
+    image: registry.access.redhat.com/ubi9/ubi:latest
+    command:
+    - sh
+    - -c
+    - 'echo "$(date -u +%FT%TZ) $(hostname)" >> /data/historial; sleep 3600'
+    volumeMounts:
+    - name: data
+      mountPath: /data
+  volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: web-data
