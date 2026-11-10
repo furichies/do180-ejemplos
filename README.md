@@ -58,7 +58,7 @@ cap06/pod-restart.yaml          restartPolicy Always vs Never
 cap06/web-probes.yaml           Deployment con startup/readiness/liveness + Service/Route
 cap06/hpa.yaml                  HPA por CPU
 cap07/web-v1.yaml               Deployment web-1.0 + Service/Route
-cap07/imagestream.yaml          ImageStream web:1.0
+cap07/imagestream.yaml          ImageStream vacío; la etiqueta se importa con oc import-image
 cap07/deployment-ist.yaml       Deployment que consume la ImageStream
 cap08/capstone.yaml             Ejercicio final completo
 cap08/broken.yaml               Ejercicio de troubleshooting

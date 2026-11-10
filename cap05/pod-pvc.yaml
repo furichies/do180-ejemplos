@@ -11,7 +11,7 @@ spec:
     command:
     - sh
     - -c
-    - 'echo "$(date -u +%FT%TZ) $(hostname)" >> /data/historial; sleep 3600'
+    - 'echo "$(date -u +%FT%TZ) $HOSTNAME" >> /data/historial; sleep 3600'
     volumeMounts:
     - name: data
       mountPath: /data
